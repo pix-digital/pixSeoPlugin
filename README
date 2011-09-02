@@ -1,0 +1,33 @@
+pixSeoPlugin - SEO tools for symfony 1.4 projects
+=================================================
+
+Introduction
+------------
+
+This plugin is born from the recurrent needs of having satelitte pages and an easy way to handle
+page redirections.
+
+Installation
+------------
+
+cd /your/symfony/project
+git clone git://github.com/pix-digital/pixSeoPlugin.git plugins/pixSeoPlugin
+
+Enable the plugin in your ProjectConfiguration.class.php
+$this->enablePlugin('pixSeoPlugin');
+
+Enable modules according to your needs in your application settings.yml
+
+all:
+  .settings:
+    enabled_modules:
+      - pageSat
+      - pageSatAdmin
+
+Enable the pageRedirect filter in your application filters.yml
+
+pageRedirect:
+  class: pageRedirectFilter
+
+
+
