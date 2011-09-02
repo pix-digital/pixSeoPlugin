@@ -1,0 +1,16 @@
+all:
+  pixSeo:
+    routes_register: true
+
+    enabled_cultures:
+      en:
+        code: en
+        label: English
+      fr:
+        code: fr
+        label: français
+
+    metas:
+      default_title: # finish title with a dash
+      default_description: # finish description with a dash
+      default_keywords: # finish list with a comma
