@@ -10,10 +10,6 @@ class pixSeoTools
     // copied from Apostrophe
     static public function urlForPage($slug, $extra_params = array(), $absolute = true)
     {
-        // sfSimpleCMS found a nice workaround for this
-        // By using @a_page we can skip to a shorter URL form
-        // and not get tripped up by the default routing rule which could
-        // match first if we wrote a/show
 
         // ajout extra_params
         $slug_params = '';

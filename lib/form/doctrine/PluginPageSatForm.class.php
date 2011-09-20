@@ -18,10 +18,12 @@ abstract class PluginPageSatForm extends BasePageSatForm
         $this->widgetSchema['lang'] = new sfWidgetFormI18nChoiceLanguage(array('languages' => array_keys(sfConfig::get('app_pixSeo_enabled_cultures')),
                                                                                'culture' => sfContext::getInstance()->getUser()->getCulture()));
 
-        $this->widgetSchema['content'] = new sfWidgetFormTextareaTinyMCE(array(
+        /*$this->widgetSchema['content'] = new sfWidgetFormTextareaTinyMCE(array(
   											'width'  => 550,
   											'height' => 350,
   	 										'theme' => 'advanced',
-										));
+										)); */
+
+        $this->widgetSchema['content'] = new sfWidgetFormTextarea(array(), array('rows' => 10, 'cols' => 80));
     }
 }

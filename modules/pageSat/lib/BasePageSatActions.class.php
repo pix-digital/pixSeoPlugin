@@ -13,6 +13,14 @@ class BasePageSatActions extends sfActions
 
         $this->page_sats = Doctrine_Core::getTable('PageSat')
                 ->retrieveAllActive($culture);
+
+        // metas
+        $this->loadMetas(array(
+                              'title'           => '',
+                              'description'     => '',
+                              'keywords'        => '',
+                              'load_default'    => true
+                         ));
     }
 
     public function executeShow(sfWebRequest $request)
@@ -51,9 +59,10 @@ class BasePageSatActions extends sfActions
 
         // metas
         $this->loadMetas(array(
-                              'title' => $page_sat->meta_title,
-                              'description' => $page_sat->meta_description,
-                              'keywords' => $page_sat->meta_keywords
+                              'title'           => $page_sat->meta_title,
+                              'description'     => $page_sat->meta_description,
+                              'keywords'        => $page_sat->meta_keywords,
+                              'load_default'    => false
                          ));
 
         $this->page_sat = $page_sat;
@@ -67,17 +76,26 @@ class BasePageSatActions extends sfActions
         }
 
         $response = $this->getResponse();
+        if($params['load_default']){
+            $configSeo = sfConfig::get('app_pixSeo_metas');
+        }
 
         if (array_key_exists('title', $params)) {
-            $response->setTitle(sfConfig::get('app_pixPage_metas_default_title') . $params['title']);
+            $default_title = isset($configSeo) ? $configSeo['default_title'] : '';
+            $default_title .= ($params['title'] && isset($configSeo)) ? ' - ' : '';
+            $response->setTitle($default_title . $params['title']);
         }
 
         if (array_key_exists('description', $params)) {
-            $response->addMeta('description', sfConfig::get('app_pixPage_metas_default_description') . $params['description']);
+            $default_description = isset($configSeo) ? $configSeo['default_description'] : '';
+            $default_description .= ($params['description'] && isset($configSeo)) ? ' - ' : '';
+            $response->addMeta('description', $default_description . $params['description']);
         }
 
         if (array_key_exists('keywords', $params)) {
-            $response->addMeta('keywords', sfConfig::get('app_pixPage_metas_default_keywords') . strtolower($params['keywords']));
+            $default_keywords = isset($configSeo) ? $configSeo['default_keywords'] : '';
+            $default_keywords .= ($params['keywords'] && isset($configSeo)) ? ' - ' : '';
+            $response->addMeta('keywords', $default_keywords . strtolower($params['keywords']));
         }
     }
 }

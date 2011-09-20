@@ -1,6 +1,8 @@
 all:
   pixSeo:
     routes_register: true
+    default_subdomain: www
+    route_class: pixSeoRoute
 
     enabled_cultures:
       en:
