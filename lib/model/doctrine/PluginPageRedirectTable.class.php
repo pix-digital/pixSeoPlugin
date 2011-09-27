@@ -16,4 +16,20 @@ class PluginPageRedirectTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('PluginPageRedirect');
     }
+
+    /**
+     * @param $slug
+     * @param null $host
+     * @return PageRedirect object
+     */
+    public function retrieveOneBySlugandHost($slug, $host = null){
+        $q = $this->createQuery('a')
+                ->where('a.url = ?', $slug);
+
+        if(!is_null($host)){
+            $q->addWhere('a.host = ? ', $host);
+        }
+
+        return $q->fetchOne();
+    }
 }
