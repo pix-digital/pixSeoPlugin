@@ -3,6 +3,7 @@ PageRedirect:
   columns:
     url: varchar(255)
     redirect_url: varchar(255)
+    host: varchar(255)
 
   actAs:
     Timestampable:
