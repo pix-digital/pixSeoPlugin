@@ -10,7 +10,10 @@
  */
 abstract class PluginPageRedirectForm extends BasePageRedirectForm
 {
-    public function configure(){
+    public function setup(){
+
+        parent::setup();
+
         unset($this['created_at'],
               $this['updated_at']);
 
