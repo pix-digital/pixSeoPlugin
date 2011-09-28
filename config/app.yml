@@ -1,7 +1,7 @@
 all:
   pixSeo:
     routes_register: true
-    default_host: www.thermes-marin.dev
+    #default_host: false
     route_class: pixSeoRoute
 
     enabled_cultures:
