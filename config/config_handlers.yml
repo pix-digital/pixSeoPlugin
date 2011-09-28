@@ -1,0 +1,2 @@
+config/routing.yml:
+  class: pixSeoRoutingConfigHandler

@@ -34,7 +34,7 @@ PageSat:
     meta_title: varchar(255)
     meta_description: clob
     meta_keywords: clob
-    subdomain: varchar(255)
+    host: varchar(255)
 
   options:
     collate: utf8_unicode_ci

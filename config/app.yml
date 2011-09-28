@@ -1,7 +1,7 @@
 all:
   pixSeo:
     routes_register: true
-    default_subdomain: www
+    default_host: www.thermes-marin.dev
     route_class: pixSeoRoute
 
     enabled_cultures:
@@ -16,3 +16,6 @@ all:
       default_title: # finish title with a dash
       default_description: # finish description with a dash
       default_keywords: # finish list with a comma
+
+    analytics:
+      www.example.com: 'UA-XXXXXXXX-X'
