@@ -30,4 +30,14 @@ pageRedirect:
   class: pageRedirectFilter
 
 
+pageRedirect
+------------
 
+The pageRedirect module allows to specify an old url and the url it should be redirected to.
+If the "host" field is specified the script will only redirect if the current host matches (quite useful for multi domain setup)
+
+
+pageSat
+-------
+
+The pageSat module allows to create satellite pages in multiple languages and for several domains.
