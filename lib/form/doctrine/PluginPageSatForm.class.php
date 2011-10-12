@@ -27,5 +27,6 @@ abstract class PluginPageSatForm extends BasePageSatForm
 										)); */
 
         $this->widgetSchema['content'] = new sfWidgetFormTextarea(array(), array('rows' => 10, 'cols' => 80));
+        $this->widgetSchema['host'] =    new sfWidgetFormInputText(array(), array('size' => 80));
     }
 }
