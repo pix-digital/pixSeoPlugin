@@ -40,7 +40,7 @@ class pixSeoRoute extends sfRequestRoute
             return false;
         }
 
-        // check if pageSat subdomain is not null
+        // check if pageSat host is not null
         if (!is_null($pageSat->host)) {
             if ($context['host'] != $pageSat->host) {
                 return false;
@@ -58,7 +58,7 @@ class pixSeoRoute extends sfRequestRoute
 
     public function generate($params, $context = array(), $absolute = false)
     {
-        $host = isset($params['host']) ? $params['host'] : sfConfig::get('app_pixSeo_default_host', false);
+        $host = isset($params['host']) ? $params['host'] : false;
         unset($params['host']);
         if ($host && $host != $context['host']) {
             $url = parent::generate($params, $context, false);
