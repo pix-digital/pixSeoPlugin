@@ -15,7 +15,7 @@ class pixSeoRoute extends sfRequestRoute
             return false;
         }
 
-        if($parameters['module'] != 'pageSat'){
+        if($parameters['module'] != 'pageSat' or ($parameters['module'] == 'pageSat' && $parameters['action'] == 'index')){
 
             // return false if the default host isn't found
             /*if (strpos($context['host'], sfConfig::get('app_pixSeo_default_host', false)) === false)

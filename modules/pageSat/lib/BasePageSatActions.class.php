@@ -28,6 +28,7 @@ class BasePageSatActions extends sfActions
 
         $slug = $this->getRequestParameter('slug');
 
+
         // remove trailing slashes from $slug
         $pattern = '/\/$/';
         if (preg_match($pattern, $slug) && ($slug != '/')) {
@@ -36,7 +37,6 @@ class BasePageSatActions extends sfActions
             $new_slug = preg_replace($pattern, '', $slug);
             $slug = addcslashes($slug, '/');
             $new_uri = preg_replace('/' . $slug . '/', $new_slug, $request->getUri());
-
             $this->redirect($new_uri);
         }
 
