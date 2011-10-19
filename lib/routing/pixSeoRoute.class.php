@@ -18,10 +18,10 @@ class pixSeoRoute extends sfRequestRoute
         if($parameters['module'] != 'pageSat' or ($parameters['module'] == 'pageSat' && $parameters['action'] == 'index')){
 
             // return false if the default host isn't found
-            /*if (strpos($context['host'], sfConfig::get('app_pixSeo_default_host', false)) === false)
+            if (strpos($context['host'], sfConfig::get('app_pixSeo_default_host', false)) === false)
             {
               return false;
-            } */
+            }
 
             return $parameters;
         }
@@ -58,7 +58,7 @@ class pixSeoRoute extends sfRequestRoute
 
     public function generate($params, $context = array(), $absolute = false)
     {
-        $host = isset($params['host']) ? $params['host'] : false;
+        $host = isset($params['host']) ? $params['host'] : sfConfig::get('app_pixSeo_default_host', false);
         unset($params['host']);
         if ($host && $host != $context['host']) {
             $url = parent::generate($params, $context, false);

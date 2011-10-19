@@ -42,9 +42,7 @@ class pixSeoRoutingConfigHandler extends sfRoutingConfigHandler
 
     protected function getDefaultRouteClass($params)
     {
-        if($params['param']['module'] == 'pageSat'){
-            $default = sfConfig::get('app_pixSeo_route_class');
-        }
+        $default = sfConfig::get('app_pixSeo_route_class');
         return isset($default) ? $default : 'sfRoute';
 
     }
