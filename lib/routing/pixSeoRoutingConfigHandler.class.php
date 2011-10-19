@@ -27,7 +27,7 @@ class pixSeoRoutingConfigHandler extends sfRoutingConfigHandler
             else
             {
                 $routes[$name] = array(isset($params['class']) ? $params['class']
-                                               : $this->getDefaultRouteClass(), array(
+                                               : $this->getDefaultRouteClass($params), array(
                     $params['url'] ? $params['url'] : '/',
                     isset($params['params']) ? $params['params'] : (isset($params['param']) ? $params['param']
                             : array()),
@@ -40,10 +40,12 @@ class pixSeoRoutingConfigHandler extends sfRoutingConfigHandler
         return $routes;
     }
 
-    protected function getDefaultRouteClass()
+    protected function getDefaultRouteClass($params)
     {
-        $default = sfConfig::get('app_pixSeo_route_class');
-        return $default ? $default : 'sfRoute';
+        if($params['param']['module'] == 'pageSat'){
+            $default = sfConfig::get('app_pixSeo_route_class');
+        }
+        return isset($default) ? $default : 'sfRoute';
 
     }
 }
