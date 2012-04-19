@@ -6,6 +6,7 @@ Introduction
 
 This plugin is born from the recurrent needs of having satelitte pages and an easy way to handle
 page redirections.
+This plugin only supports Doctrine ORM.
 
 Installation
 ------------
@@ -15,6 +16,12 @@ git clone git://github.com/pix-digital/pixSeoPlugin.git plugins/pixSeoPlugin
 
 Enable the plugin in your ProjectConfiguration.class.php
 $this->enablePlugin('pixSeoPlugin');
+
+Rebuild your model
+./symfony doctrine:build --all-classes
+
+Rebuild SQL and import all the new tables in your database (or use the migrate task if you prefer)
+./symfony doctrine:build-sql
 
 Enable modules according to your needs in your application settings.yml
 
