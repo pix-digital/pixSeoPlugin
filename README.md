@@ -2,8 +2,8 @@
 
 ## Introduction
 
-This plugin is born from the recurrent needs of having satelitte pages and an easy way to handle
-page redirections.
+This plugin is born from the recurrent needs of having satelitte pages and an easy way to handle page redirections.
+It includes now many features to handle daily SEO needs.
 This plugin only supports Doctrine ORM.
 
 ## Installation
@@ -41,7 +41,32 @@ Add a config_handlers.yml file with the following configuration in the applicati
     config/routing.yml:
       class: pixSeoRoutingConfigHandler
 
-Enable modules according to your needs in your application settings.yml
+Enable modules according to your needs in your application settings.yml (see below for each configuration)
+
+
+## Modules
+
+### pageRedirect
+
+
+The pageRedirect module allows to specify an old url and the url it should be redirected to.
+If the "host" field is specified the script will only redirect if the current host matches (quite useful for multi domain setup)
+
+Enable the module in your settings.yml
+
+    [yaml]
+    all:
+      .settings:
+        enabled_modules:
+          - pageRedirectAdmin
+
+
+### pageSat
+
+
+The pageSat module allows to create satellite pages in multiple languages and for several domains.
+
+Enable the modules in your settings.yml
 
     [yaml]
     all:
@@ -51,13 +76,11 @@ Enable modules according to your needs in your application settings.yml
           - pageSatAdmin
 
 
-pageRedirect
-------------
+## Filters
 
-The pageRedirect module allows to specify an old url and the url it should be redirected to.
-If the "host" field is specified the script will only redirect if the current host matches (quite useful for multi domain setup)
+### pageRedirectFilter
 
-* Installation
+This filter works in conjunction with the pageRedirect module.
 
 Enable the pageRedirect filter in your application filters.yml
 
@@ -66,14 +89,8 @@ Enable the pageRedirect filter in your application filters.yml
       class: pageRedirectFilter
 
 
-pageSat
--------
+### trackingFilter
 
-The pageSat module allows to create satellite pages in multiple languages and for several domains.
-
-
-trackingFilter
---------------
 
 This filter creates a cookie to store information about where the user is coming from (url, host, keywords)
 
@@ -91,3 +108,19 @@ To collect information for your cookie at anytime
 
     [php]
     $cookie = $request->getCookie(sfConfig::get('app_cookie_name'));
+
+### Doctrine behaviors
+
+## PixMeta
+
+This behavior adds 3 fields to your model:
+    - meta_title
+    - meta_description
+    - meta_keywords
+
+* Installation
+
+    [yaml]
+     YourModel:
+       actAs:
+         PixMeta: ~
