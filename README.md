@@ -121,6 +121,6 @@ This behavior adds 3 fields to your model:
 * Installation
 
     [yaml]
-     YourModel:
-       actAs:
-         PixMeta: ~
+    YourModel:
+      actAs:
+        PixMeta: ~
