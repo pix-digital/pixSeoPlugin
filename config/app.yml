@@ -20,3 +20,5 @@ all:
 
     analytics:
       www.example.com: 'UA-XXXXXXXX-X'
+
+    cookie_name: your_cookie_name

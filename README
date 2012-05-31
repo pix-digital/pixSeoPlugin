@@ -38,11 +38,6 @@ all:
       - pageSat
       - pageSatAdmin
 
-Enable the pageRedirect filter in your application filters.yml
-
-pageRedirect:
-  class: pageRedirectFilter
-
 
 pageRedirect
 ------------
@@ -50,8 +45,34 @@ pageRedirect
 The pageRedirect module allows to specify an old url and the url it should be redirected to.
 If the "host" field is specified the script will only redirect if the current host matches (quite useful for multi domain setup)
 
+* Installation
+
+Enable the pageRedirect filter in your application filters.yml
+
+pageRedirect:
+  class: pageRedirectFilter
+
 
 pageSat
 -------
 
 The pageSat module allows to create satellite pages in multiple languages and for several domains.
+
+
+trackingFilter
+--------------
+
+This filter creates a cookie to store information about where the user is coming from (url, host, keywords)
+
+* Installation
+
+Enable the tracking filter in your application filters.yml
+
+tracking:
+  class: trackingFilter
+
+* Usage
+
+To collect information for your cookie at anytime
+
+$cookie = $request->getCookie(sfConfig::get('app_cookie_name'));
