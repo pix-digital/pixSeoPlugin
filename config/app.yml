@@ -1,7 +1,8 @@
 all:
   pixSeo:
     routes_register: true
-    #default_host: false
+    multi_domain: false  # enable if multiple domains are used for the page sat
+    default_host_prefix: false # define the prefix for the default host (www, dev, test ...)
     route_class: pixSeoRoute
 
     enabled_cultures:
