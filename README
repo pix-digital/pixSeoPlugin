@@ -15,7 +15,14 @@ cd /your/symfony/project
 git clone git://github.com/pix-digital/pixSeoPlugin.git plugins/pixSeoPlugin
 
 Enable the plugin in your ProjectConfiguration.class.php
-$this->enablePlugin('pixSeoPlugin');
+$this->enablePlugin('pixSeoPlugin'); 
+
+Note: if used with pixCmsPlugin, always enable this plugin first
+
+Add the following line before the class implementation in ProjectConfiguration.class.php
+
+require_once(dirname(__FILE__).'/../plugins/pixSeoPlugin/lib/routing/pixSeoRoutingConfigHandler.class.php');
+class ProjectConfiguration extends sfProjectConfiguration
 
 Rebuild your model
 ./symfony doctrine:build --all-classes
