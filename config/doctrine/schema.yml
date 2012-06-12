@@ -17,6 +17,7 @@ PageSat:
   actAs:
     Timestampable:
     Sluggable: { fields: [title], uniqueBy: [id, lang, title], canUpdate: false }
+    PixMeta:
 
 
   columns:
@@ -31,10 +32,20 @@ PageSat:
     in_menu: {type: boolean, default: 0}
     layout: varchar(255)
     template: varchar(255)
-    meta_title: varchar(255)
-    meta_description: clob
-    meta_keywords: clob
     host: varchar(255)
+
+  options:
+    collate: utf8_unicode_ci
+    charset: utf8
+
+Keyword:
+  tableName: pix_keyword
+  actAs:
+    Timestampable:
+
+  columns:
+    keyword: varchar(255)
+    occurence: integer
 
   options:
     collate: utf8_unicode_ci

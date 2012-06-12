@@ -7,7 +7,7 @@ class pageRedirectFilter extends sfFilter
 
         // Code to execute before the action execution
         $request = $this->getContext()->getRequest();
-        $host = $request->getHost();
+        $host = sfConfig::get('app_pixSeo_multi_domain') ? $request->getHost() : null;
 
         $pageRedirect = Doctrine_Core::getTable('PageRedirect')->retrieveOneBySlugandHost($request->getPathInfo(), $host);
         if ($pageRedirect) {
