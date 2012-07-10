@@ -58,6 +58,10 @@ pageSat
 
 The pageSat module allows to create satellite pages in multiple languages and for several domains.
 
+pageSatAuto
+-----------
+
+The pageSatAuto module allows to create dynamic satellite pages from a list of keywords. The {keyword} placeholder can be used to replace the pattern by the stored keyword.
 
 trackingFilter
 --------------
