@@ -22,3 +22,9 @@ all:
       www.example.com: 'UA-XXXXXXXX-X'
 
     cookie_name: your_cookie_name
+
+    pageSatAuto:
+      load_default: false # whether or not loading the default meta defined below
+      meta_title: # use {keyword} as a placeholder to load dynamically the keyword in database
+      meta_description:
+      meta_keywords:

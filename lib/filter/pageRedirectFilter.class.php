@@ -11,6 +11,7 @@ class pageRedirectFilter extends sfFilter
 
         $pageRedirect = Doctrine_Core::getTable('PageRedirect')->retrieveOneBySlugandHost($request->getPathInfo(), $host);
         if ($pageRedirect) {
+            $host = is_null($host) ? $request->getHost() : $host;
             $this->getContext()->getController()->redirect('http://' . $host . $pageRedirect->redirect_url, 301);
         }
 
