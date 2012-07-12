@@ -26,14 +26,18 @@ function loadMetas($params = array())
     }
 }
 
-function loadDefaultMetas()
+function loadDefaultMetas($page = null)
 {
     $response = sfContext::getInstance()->getResponse();
     $culture = sfContext::getInstance()->getUser()->getCulture();
     $request = sfContext::getInstance()->getRequest();
 
-    $metas = sfConfig::get('app_metas_'.$request->getParameter('module'));
-    if(array_key_exists($culture, $metas)){
+    if (is_null($page)) {
+        $page = $request->getParameter('module');
+    }
+
+    $metas = sfConfig::get('app_metas_' . $page);
+    if (array_key_exists($culture, $metas)) {
         $response->setTitle($metas[$culture]['title']);
         $response->addMeta('description', $metas[$culture]['description']);
         $response->addMeta('keywords', $metas[$culture]['keywords']);
