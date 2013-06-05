@@ -1,0 +1,30 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           PageRedirect
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          pix_page_redirect_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    css:                   nothing
+
+    config:
+      actions: ~
+      fields:
+        url:
+          help: Le chemin relatif depuis le nom de domaine commençant par un "/" (incluant le préfixe culture)
+        redirect_url:
+          help: Le chemin relatif depuis le nom de domaine commençant par un "/" (incluant le préfixe culture)
+      list:
+        title: Liste des redirections
+      filter:  ~
+      form:
+        display: [url, redirect_url]
+      edit:
+        title: Editer une redirection
+      new:
+        title: Ajouter une redirection

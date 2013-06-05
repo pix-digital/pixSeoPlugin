@@ -1,0 +1,55 @@
+PageRedirect:
+  tableName: pix_page_redirect
+  columns:
+    url: varchar(255)
+    redirect_url: varchar(255)
+    host: varchar(255)
+
+  actAs:
+    Timestampable:
+
+  options:
+    collate: utf8_unicode_ci
+    charset: utf8
+
+PageSat:
+  tableName: pix_page_sat
+  actAs:
+    Timestampable:
+    Sluggable: { fields: [title], uniqueBy: [id, lang, title], canUpdate: false }
+    PixMeta:
+
+
+  columns:
+    lang:
+      type: enum
+      default: fr
+      values: [<?php echo implode(',',array_keys(sfConfig::get('app_pixSeo_enabled_cultures'))); ?>]
+    title: varchar(255)
+    content: clob
+    media: varchar(255)
+    enabled: {type: boolean, default: 0}
+    in_menu: {type: boolean, default: 0}
+    layout: varchar(255)
+    template: varchar(255)
+    host: varchar(255)
+
+  options:
+    collate: utf8_unicode_ci
+    charset: utf8
+
+PageSatAuto:
+  tableName: pix_page_sat_auto
+  actAs:
+    Timestampable:
+    Sluggable: { fields: [keyword], uniqueBy: [id, keyword], canUpdate: false }
+    PixMeta:
+
+  columns:
+    keyword: varchar(255)
+    occurence: integer
+    nb_results: integer
+
+  options:
+    collate: utf8_unicode_ci
+    charset: utf8
