@@ -1,3 +1,0 @@
-all:
-  javascripts:
-    - /pixSeoPlugin/js/tiny_mce/tiny_mce.js
