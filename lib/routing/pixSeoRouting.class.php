@@ -19,7 +19,7 @@ class pixSeoRouting
         $r = $event->getSubject();
 
         // append / preprend our routes
-        $r->appendRoute('pix_page_sat_index', new sfRoute('/:sf_culture/pages',
+        $r->prependRoute('pix_page_sat_index', new sfRoute('/:sf_culture/pages',
             array('module' => 'pageSat', 'action' => 'index'),
             array(),
             array(
@@ -28,7 +28,7 @@ class pixSeoRouting
                 )
             )
         ));
-        $r->appendRoute('pix_page_sat_show', new sfRoute('/:sf_culture/page/:slug',
+        $r->prependRoute('pix_page_sat_show', new sfRoute('/:sf_culture/page/:slug',
             array('module' => 'pageSat', 'action' => 'show'),
             array(),
             array(
@@ -55,7 +55,7 @@ class pixSeoRouting
                 )
             )
         ));
-        $r->appendRoute('pix_page_sat_auto_show', new sfRoute('/:sf_culture/page-auto/:slug',
+        $r->prependRoute('pix_page_sat_auto_show', new sfRoute('/:sf_culture/page-auto/:slug',
             array('module' => 'pageSatAuto', 'action' => 'show'),
             array(),
             array(
